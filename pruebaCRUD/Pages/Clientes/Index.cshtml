@@ -1,0 +1,38 @@
+﻿@page
+@model pruebaCRUD.Pages.Clientes.IndexModel
+@{
+}
+
+<br />
+<h2>Lista de clientes</h2>
+<a class="btn btn-primary btn-sm" href="/Clientes/Crear">Nuevo Cliente</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Correo</th>
+			<th>Telefono</th>
+			<th>Direccion</th>
+			<th>Creacion</th>
+			<th>Accion</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.listaClientes)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.nombre</td>
+				<td>@item.correo</td>
+				<td>@item.telefono</td>
+				<td>@item.direccion</td>
+				<td>@item.creacion</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Clientes/Editar?id=@item.id">Editar</a>
+					<a class="btn btn-danger btn-sm" href="/Clientes/Eliminar?id=@item.id">Eliminar</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
